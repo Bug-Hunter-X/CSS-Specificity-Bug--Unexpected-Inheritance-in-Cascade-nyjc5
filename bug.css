@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon issue related to the specificity of CSS selectors and the cascade.  The unexpected behavior arises from the interaction between the `id` selector and the class selector, in combination with inheritance.
+
+```css
+#container {
+  color: blue;
+}
+
+.text {
+  color: red;
+}
+
+#container .text {
+  color: green; /* This rule should override the others, but doesn't always behave as expected */
+}
+
+#container p {
+  color: purple; /* Inherits color from #container, but interaction with .text might be unpredictable */
+}
+```
+
+In this example, the `<p>` element within the `#container` div might unexpectedly inherit the `color: blue` from `#container`, ignoring the cascade that should prioritize the more specific `#container .text` rule, especially if `.text` is applied to the paragraph after the paragraph is defined.  This can lead to confusion and inconsistent styling.
