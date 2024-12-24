@@ -1,0 +1,26 @@
+The solution involves making the selectors more explicit and avoiding potential ambiguities caused by inheritance.
+
+```css
+#container {
+  color: blue;
+}
+
+.text {
+  color: red;
+}
+
+#container .text {
+  color: green; /* This rule is made more explicit; however the best way to fix the bug would depend on the desired outcome */
+}
+
+p {
+  color: inherit; /* Explicitly define inheritance for paragraphs */
+}
+
+/* Alternatively, give the paragraph its own specific style to override everything else */
+#container p {
+  color: purple;
+}
+```
+
+This improved CSS ensures the cascade behaves as expected. By being more explicit about inheritance (or otherwise explicitly overriding the inheritance) and using more specific selectors where appropriate, we can avoid the unexpected behavior demonstrated in the initial code example.
